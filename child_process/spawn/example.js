@@ -1,15 +1,21 @@
 //from docs: https://nodejs.org/docs/latest-v6.x/api/child_process.html
 const spawn = require('child_process').spawn;
 const ls = spawn('ls', ['-lh', '/usr']);
+const version = spawn('node', ['-v']);
 
-ls.stdout.on('data', (data) => {
-  console.log(`stdout: ${data}`);
-});
+const addHandlers = (cmd) => {
+  cmd.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`);
+  });
 
-ls.stderr.on('data', (data) => {
-  console.log(`stderr: ${data}`);
-});
+  cmd.stderr.on('data', (data) => {
+    console.log(`stderr: ${data}`);
+  });
 
-ls.on('close', (code) => {
-  console.log(`child process exited with code ${code}`);
-});
+  cmd.on('close', (code) => {
+    console.log(`child process exited with code ${code}`);
+  });
+};
+
+addHandlers(ls);
+addHandlers(version);
