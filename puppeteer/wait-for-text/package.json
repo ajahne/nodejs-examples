@@ -1,0 +1,15 @@
+{
+  "name": "wait-for-text",
+  "version": "1.0.0",
+  "description": "Waiting for text to display with puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ajahne",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.13.0"
+  }
+}
