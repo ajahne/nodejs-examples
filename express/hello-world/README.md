@@ -6,3 +6,7 @@
 `node app.js`
 - hit local page  
 `http://localhost:3000`
+
+
+## helpful resources
+- [Render HTML files in Express](https://codeforgeek.com/render-html-file-expressjs/)
