@@ -23,7 +23,7 @@ app.put('*', (req, res) => {
   console.log('PUT: editing happening');
   // console.log(req);
   console.log(req.body);
-  console.log(res.body);
+  res.send('successful put');
   writeFile(req);
 });
 
