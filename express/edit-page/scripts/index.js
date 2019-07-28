@@ -24,13 +24,11 @@ const getData = () => {
 const handleRequest = (xhr) => {
   console.log('handleRequest');
   xhr.onload = function () {
-    console.log('xhr');
-  	var users = JSON.parse(xhr.responseText);
+  	const responseText = xhr.responseText; //JSON.parse(xhr.responseText);
   	if (xhr.readyState == 4 && xhr.status == "200") {
-  		console.table(users);
+      console.log(responseText);
   	} else {
-  		console.error(users);
+  		console.error(responseText);
   	}
   }
-  // xhr.send(json);
 }
