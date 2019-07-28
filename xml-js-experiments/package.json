@@ -1,0 +1,15 @@
+{
+  "name": "xml-js-experiments",
+  "version": "1.0.0",
+  "description": "## Experiments - going to try [xml2j](shttps://www.npmjs.com/package/xml2js)   - simple XML, console log what I get   - complex XML 1 (app XML)   - complex XML 2 (prototype)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xml2js": "^0.4.19"
+  }
+}
