@@ -5,12 +5,6 @@ const save = () => {
   request.setRequestHeader('Content-type','application/json; charset=utf-8');
 
   request.send(getData());
-  // console.log(document.body);
-  // console.log(getElement('text'));
-  // console.log(getElement('text').toString());
-  // console.log(getElement('text').innerHTML);
-  // console.log(getElement('text').outerHTML);
-  // console.log(document.documentElement.outerHTML);
 }
 
 const getUrl = () => {
@@ -19,14 +13,9 @@ const getUrl = () => {
 }
 
 const getData = () => {
-  // const element = getElement('text');
   const data = {};
-  // data.element = element.innerHTML;
   data.html = document.documentElement.outerHTML;
-  console.log('data');
-  console.log(data);
   return JSON.stringify(data);
-  // return getDummyData();
 }
 
 const getElement = (id) => {
