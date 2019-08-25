@@ -11,6 +11,12 @@ npm install pdfjs-dist --save
 - read pdf file
 - see if we can find a string in the file
 
+## Resources
+- [pdfjs](https://mozilla.github.io/pdf.js/)
+- [pdf-parse](https://www.npmjs.com/package/pdf-parse)
+- pdfjs examples
+  - [getinfo](https://github.com/mozilla/pdf.js/blob/master/examples/node/getinfo.js)
+  - [api source](https://github.com/mozilla/pdf.js/blob/master/src/display/api.js)
 
 ## Notes
 - x, y positions of text in pdf.js, maps to `transform[4]` and `transform[5]`
