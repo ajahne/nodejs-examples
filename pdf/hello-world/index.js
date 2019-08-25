@@ -1,9 +1,14 @@
 const fs = require('fs');
 const pdf = require('pdf-parse');
+const writeFile = require('../../express/edit-page/write-file.js');
 
-let dataBuffer = fs.readFileSync('Hello World.pdf');
+const dataBuffer = fs.readFileSync('Hello World.pdf');
 
-pdf(dataBuffer).then(function(data) {
+const DEFAULT_OPTIONS = {
+  max: -1,
+}
+
+pdf(dataBuffer, DEFAULT_OPTIONS).then(function(data) {
 
     // number of pages
     console.log(data.numpages);
@@ -18,5 +23,7 @@ pdf(dataBuffer).then(function(data) {
     console.log(data.version);
     // PDF text
     console.log(data.text);
+
+    writeFile('file.txt', data.text);
 
 });
