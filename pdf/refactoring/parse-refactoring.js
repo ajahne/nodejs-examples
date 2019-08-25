@@ -1,23 +1,43 @@
 const pdfjsLib = require('pdfjs-dist');
 const writeFile = require('../../express/edit-page/write-file.js');
 
+// Loading file from file system into typed array
 const pdfPath = '../assets/refactoring-improving-existing-2nd.pdf';
-const loadingTask = pdfjsLib.getDocument(pdfPath);
-// const pageNumber = 3;
 const outputFile = '../assets/refactoring.txt';
 
-let text = '';
-// let lastPromise;
+let textContent = '';
 
-let promises = [];
+// Will be using promises to load document, pages and misc data instead of
+// callback.
+const loadingTask = pdfjsLib.getDocument(pdfPath);
 loadingTask.promise.then(function(doc) {
   const numPages = doc.numPages;
+  // console.log('# Document Loaded');
+  // console.log('Number of Pages: ' + numPages);
+  // console.log();
 
-  const loadPage = function(pageNum) {
-    console.log(`loadPage ${pageNum}`);
-    let textContent;
-    return doc.getPage(pageNum).then(function(page) {
-      return page.getTextContent().then(function(content) {
+  let lastPromise; // will be used to chain promises
+  lastPromise = doc.getMetadata().then(function (data) {
+    // console.log('# Metadata Is Loaded');
+    // console.log('## Info');
+    // console.log(JSON.stringify(data.info, null, 2));
+    // console.log();
+    if (data.metadata) {
+      // console.log('## Metadata');
+      // console.log(JSON.stringify(data.metadata.getAll(), null, 2));
+      // console.log();
+    }
+  });
+
+  const loadPage = function (pageNum) {
+    return doc.getPage(pageNum).then(function (page) {
+      // console.log('# Page ' + pageNum);
+      const viewport = page.getViewport({ scale: 1.0, });
+      // console.log('Size: ' + viewport.width + 'x' + viewport.height);
+      // console.log();
+      return page.getTextContent().then(function (content) {
+        // Content contains lots of information about the text layout and
+        // styles, but we need only strings at the moment
         const strings = content.items.map(function(item, index, array) {
           //.transform[5] is the y position of the current line
           //if a new "y", then its a new line, so add newline character
@@ -28,37 +48,23 @@ loadingTask.promise.then(function(doc) {
           return str;
         });
         // console.log('## Text Content');
-        textContent = strings.join('');
-        // console.log('returning text content');
-        // console.log(textContent);
-        return textContent;
-      }).then(function() {
-        console.log('***then time***');
-        text += textContent;
-        return text;
-        //writeFile(outputFile, textContent);
-        // writeFile(outputFile, text);
+        textContent += strings.join('');
+      }).then(function () {
+        // console.log();
       });
     });
   };
 
-  let bound;
-  let promise;
-  for (let i = 1; i <= 10; i++) {
-    // console.log('looping...');
-    // lastPromise = lastPromise.then(loadPage.bind(null, i));
-    bound = loadPage.bind(null, i);
-    promise = bound().then(function() {
-      // console.log('hey, no different than a callback!');
-    });
-    promises.push(promise);
+  // Loading of the first page will wait on metadata and subsequent loadings
+  // will wait on the previous pages.
+  for (let i = 1; i <= numPages; i++) {
+    lastPromise = lastPromise.then(loadPage.bind(null, i));
   }
-  // return promise;
-  Promise.all(promises).then(function(values) {
-    console.log(values);
-    // console.log(text);
-    writeFile(outputFile, text);
-  });
-}).then(function(){
-  console.log('end of document');
-})
+  return lastPromise;
+}).then(function () {
+  console.log('# End of Document');
+  // console.log(textContent);
+  writeFile(outputFile, textContent);
+}, function (err) {
+  console.error('Error: ' + err);
+});
