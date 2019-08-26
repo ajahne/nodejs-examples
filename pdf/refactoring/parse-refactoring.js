@@ -35,7 +35,7 @@ loadingTask.promise.then(function(doc) {
       const viewport = page.getViewport({ scale: 1.0, });
       // console.log('Size: ' + viewport.width + 'x' + viewport.height);
       // console.log();
-      return page.getTextContent().then(function (content) {
+      return page.getTextContent({normalizeWhitespace:true}).then(function (content) {
         // Content contains lots of information about the text layout and
         // styles, but we need only strings at the moment
         const strings = content.items.map(function(item, index, array) {
