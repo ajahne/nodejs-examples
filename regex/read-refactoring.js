@@ -2,17 +2,32 @@ const fs = require('fs');
 const file = '../pdf/assets/refactoring.txt';
 
 function logInstances(data) {
-  // const re = /extract\sfunction|method\s\(106\)/ig;
-  // const re = /\(106\)/ig;
   const pageNumbers = getRefactoringPageNumbers();
   let length = 0;
-  let sortedRefactorings = [];
+  let refactorings = [];
   for (let key in pageNumbers) {
     let re = new RegExp('\\(' + pageNumbers[key] + '\\)', 'ig');
-    console.log(`"${key}" is referenced ${data.match(re).length} times.`);
     length++;
+    refactorings.push({
+      name: key,
+      page: pageNumbers[key],
+      references: data.match(re).length
+    });
+    // console.log(`"${key}" is referenced ${data.match(re).length} times.`);
   }
-  console.log(`Number of Refactorings ${length}`);
+  // console.log(`Number of Refactorings ${length}`);
+  printRefactoringsInOrder(refactorings);
+}
+
+function printRefactoringsInOrder(sortedRefactorings) {
+  function compareNumbers(a, b) {
+    return a.references - b.references;
+  }
+  sortedRefactorings.sort(compareNumbers);
+  sortedRefactorings.reverse();
+  sortedRefactorings.forEach(function(currentValue, index, array) {
+    console.log(`${currentValue.name} is referenced ${currentValue.references} times.`);
+  })
 }
 
 /**
