@@ -2,8 +2,13 @@ const fs = require('fs');
 const file = '../pdf/assets/refactoring.txt';
 
 function logInstances(data) {
+  const refactorings = createListOfRefactorings(data);
+  printRefactoringsInOrder(refactorings);
+}
+
+function createListOfRefactorings(data) {
   const pageNumbers = getRefactoringPageNumbers();
-  let refactorings = [];
+  const refactorings = [];
   for (let key in pageNumbers) {
     let re = new RegExp('\\(' + pageNumbers[key] + '\\)', 'ig');
     refactorings.push({
@@ -14,7 +19,7 @@ function logInstances(data) {
     // console.log(`"${key}" is referenced ${data.match(re).length} times.`);
   }
   // console.log(`Number of Refactorings ${length}`);
-  printRefactoringsInOrder(refactorings);
+  return refactorings;
 }
 
 function printRefactoringsInOrder(sortedRefactorings) {
