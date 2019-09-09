@@ -3,11 +3,9 @@ const file = '../pdf/assets/refactoring.txt';
 
 function logInstances(data) {
   const pageNumbers = getRefactoringPageNumbers();
-  let length = 0;
   let refactorings = [];
   for (let key in pageNumbers) {
     let re = new RegExp('\\(' + pageNumbers[key] + '\\)', 'ig');
-    length++;
     refactorings.push({
       name: key,
       page: pageNumbers[key],
