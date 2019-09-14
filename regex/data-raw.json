@@ -1,0 +1,307 @@
+[
+ {
+  "name": "Extract Function",
+  "page": "106",
+  "references": 85
+ },
+ {
+  "name": "Change Function Declaration",
+  "page": "124",
+  "references": 45
+ },
+ {
+  "name": "Inline Function",
+  "page": "115",
+  "references": 34
+ },
+ {
+  "name": "Move Function",
+  "page": "198",
+  "references": 32
+ },
+ {
+  "name": "Inline Variable",
+  "page": "123",
+  "references": 18
+ },
+ {
+  "name": "Encapsulate Variable",
+  "page": "132",
+  "references": 18
+ },
+ {
+  "name": "Extract Class",
+  "page": "182",
+  "references": 14
+ },
+ {
+  "name": "Slide Statements",
+  "page": "223",
+  "references": 13
+ },
+ {
+  "name": "Replace Conditional with Polymorphism",
+  "page": "272",
+  "references": 13
+ },
+ {
+  "name": "Remove Dead Code",
+  "page": "237",
+  "references": 12
+ },
+ {
+  "name": "Pull Up Method",
+  "page": "350",
+  "references": 12
+ },
+ {
+  "name": "Combine Functions into Class",
+  "page": "144",
+  "references": 12
+ },
+ {
+  "name": "Introduce Assertion",
+  "page": "302",
+  "references": 10
+ },
+ {
+  "name": "Replace Parameter with Query",
+  "page": "334",
+  "references": 9
+ },
+ {
+  "name": "Replace Constructor with Factory Function",
+  "page": "334",
+  "references": 9
+ },
+ {
+  "name": "Remove Setting Method",
+  "page": "331",
+  "references": 9
+ },
+ {
+  "name": "Extract Variable",
+  "page": "119",
+  "references": 9
+ },
+ {
+  "name": "Encapsulate Record",
+  "page": "162",
+  "references": 9
+ },
+ {
+  "name": "Split Variable",
+  "page": "240",
+  "references": 8
+ },
+ {
+  "name": "Replace Temp with Query",
+  "page": "178",
+  "references": 8
+ },
+ {
+  "name": "Split Phase",
+  "page": "154",
+  "references": 7
+ },
+ {
+  "name": "Pull Up Field",
+  "page": "353",
+  "references": 7
+ },
+ {
+  "name": "Move Statements to Callers",
+  "page": "217",
+  "references": 7
+ },
+ {
+  "name": "Introduce Parameter Object",
+  "page": "140",
+  "references": 7
+ },
+ {
+  "name": "Change Reference to Value",
+  "page": "252",
+  "references": 7
+ },
+ {
+  "name": "Replace Type Code with Subclasses",
+  "page": "362",
+  "references": 6
+ },
+ {
+  "name": "Push Down Method",
+  "page": "359",
+  "references": 6
+ },
+ {
+  "name": "Move Field",
+  "page": "207",
+  "references": 6
+ },
+ {
+  "name": "Hide Delegate",
+  "page": "189",
+  "references": 6
+ },
+ {
+  "name": "Extract Superclass",
+  "page": "375",
+  "references": 6
+ },
+ {
+  "name": "Combine Functions into Transform",
+  "page": "149",
+  "references": 6
+ },
+ {
+  "name": "Change Value to Reference",
+  "page": "256",
+  "references": 6
+ },
+ {
+  "name": "Replace Superclass with Delegate",
+  "page": "399",
+  "references": 5
+ },
+ {
+  "name": "Replace Loop with Pipeline",
+  "page": "231",
+  "references": 5
+ },
+ {
+  "name": "Push Down Field",
+  "page": "361",
+  "references": 5
+ },
+ {
+  "name": "Inline Class",
+  "page": "186",
+  "references": 5
+ },
+ {
+  "name": "Decompose Conditional",
+  "page": "260",
+  "references": 5
+ },
+ {
+  "name": "Split Loop",
+  "page": "227",
+  "references": 4
+ },
+ {
+  "name": "Separate Query from Modifier",
+  "page": "306",
+  "references": 4
+ },
+ {
+  "name": "Replace Subclass with Delegate",
+  "page": "381",
+  "references": 4
+ },
+ {
+  "name": "Replace Primitive with Object",
+  "page": "174",
+  "references": 4
+ },
+ {
+  "name": "Rename Variable",
+  "page": "137",
+  "references": 4
+ },
+ {
+  "name": "Preserve Whole Object",
+  "page": "319",
+  "references": 4
+ },
+ {
+  "name": "Parameterize Function",
+  "page": "310",
+  "references": 4
+ },
+ {
+  "name": "Substitute Algorithm",
+  "page": "195",
+  "references": 3
+ },
+ {
+  "name": "Replace Function with Command",
+  "page": "337",
+  "references": 3
+ },
+ {
+  "name": "Remove Middle Man",
+  "page": "192",
+  "references": 3
+ },
+ {
+  "name": "Pull Up Constructor Body",
+  "page": "355",
+  "references": 3
+ },
+ {
+  "name": "Introduce Special Case",
+  "page": "289",
+  "references": 3
+ },
+ {
+  "name": "Encapsulate Collection",
+  "page": "170",
+  "references": 3
+ },
+ {
+  "name": "Consolidate Conditional Expression",
+  "page": "263",
+  "references": 3
+ },
+ {
+  "name": "Collapse Hierarchy",
+  "page": "380",
+  "references": 3
+ },
+ {
+  "name": "Replace Query with Parameter",
+  "page": "327",
+  "references": 2
+ },
+ {
+  "name": "Replace Inline Code with Function",
+  "page": "222",
+  "references": 2
+ },
+ {
+  "name": "Replace Derived Variable with Query",
+  "page": "248",
+  "references": 2
+ },
+ {
+  "name": "Replace Command with Function",
+  "page": "344",
+  "references": 2
+ },
+ {
+  "name": "Rename Field",
+  "page": "244",
+  "references": 2
+ },
+ {
+  "name": "Remove Subclass",
+  "page": "369",
+  "references": 2
+ },
+ {
+  "name": "Remove Flag Argument",
+  "page": "314",
+  "references": 2
+ },
+ {
+  "name": "Move Statements into Function",
+  "page": "213",
+  "references": 2
+ },
+ {
+  "name": "Replace Nested Conditional with Guard Clauses",
+  "page": "266",
+  "references": 1
+ }
+]
