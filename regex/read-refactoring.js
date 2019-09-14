@@ -30,8 +30,19 @@ function createDataForChart(refactorings) {
     config.data.push(element.references);
   });
 
-  // const data = JSON.stringify(refactorings, null, ' ');
   const data = JSON.stringify(config, null, ' ');
+
+  writeFile(filename, data);
+}
+
+function writeRawData(refactorings) {
+  const filename = 'data-raw.json';
+  const data = JSON.stringify(refactorings, null, ' ');
+
+  writeFile(filename, data);
+}
+
+function writeFile(filename, data) {
   fs.writeFile(filename, data, (err) => {
     if (err) throw err;
     console.log('file written');
@@ -91,4 +102,5 @@ fs.readFile(file, 'utf8', (err, data) => {
   sort(refactorings);
   // print(refactorings);
   createDataForChart(refactorings);
+  writeRawData(refactorings);
 });
