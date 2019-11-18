@@ -20,3 +20,23 @@ MongoClient.connect(url, function(err, client) {
 
   client.close();
 });
+
+const addName = (first, last) => {
+  MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    console.log("addName: Connected successfully to server");
+
+    const db = client.db(dbName);
+
+    db.collection('names').insertOne({
+      firstname: first,
+      lastname: last,
+    })
+
+    client.close();
+  });
+}
+
+module.exports = {
+  addName,
+}
