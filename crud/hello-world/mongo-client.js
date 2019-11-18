@@ -18,6 +18,7 @@ MongoClient.connect(url, function(err, client) {
   // client.close();
 });
 
+//create
 const addName = (first, last) => {
   db.collection('names').insertOne({
     firstname: first,
@@ -32,6 +33,23 @@ const addName = (first, last) => {
   });
 }
 
+//read
+const getNames = (cb) => {
+  console.log('getNames');
+  const names = [];
+  db.collection('names').find().toArray((err, result) => {
+    if (err) {
+      return console.log(err);
+    } else {
+      console.log('returning from getNames');
+      console.log(result);
+      // return result;
+      cb(result);
+    }
+  });
+}
+
 module.exports = {
   addName,
+  getNames,
 }

@@ -14,14 +14,23 @@ app.get('/home', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+//CREATE
 app.post('/addname', (req, res) => {
   console.log('post happened');
   console.log(req.body);
   console.log(req.body.firstname);
   console.log(req.body.lastname);
-  
+
   mongoClient.addName(req.body.firstname, req.body.lastname);
   res.send('success');
 });
+
+//READ
+app.get('/getnames', (req,res) => {
+  console.log('getNames');
+  mongoClient.getNames((names) => {
+    res.send(names);
+  });
+})
 
 app.listen(port, () => console.log(`listening on port ${port}`));
