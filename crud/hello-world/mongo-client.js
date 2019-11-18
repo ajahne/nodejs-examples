@@ -7,20 +7,28 @@ const url = 'mongodb://localhost:27017'
 // Database Name
 const dbName = 'myproject';
 
-const addName = (first, last) => {
+//holder for database object
+let db;
+
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
   // Use connect method to connect to the server
-  MongoClient.connect(url, function(err, client) {
-    assert.equal(null, err);
-    console.log("addName: Connected successfully to server");
+  console.log("Connected successfully to server");
+  db = client.db(dbName);
+  // client.close();
+});
 
-    const db = client.db(dbName);
-
-    db.collection('names').insertOne({
-      firstname: first,
-      lastname: last,
-    })
-
-    client.close();
+const addName = (first, last) => {
+  db.collection('names').insertOne({
+    firstname: first,
+    lastname: last,
+  })
+  .then(function(result) {
+    console.log('addName() result:');
+    console.log(result);
+  })
+  .catch(err => {
+    console.error(err)
   });
 }
 
