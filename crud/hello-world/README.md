@@ -11,7 +11,13 @@
 - run on localhost
 - have fun!
 
-## Steps
+## Development
+- Create (e.g. `addName`)
+  - when user clicks submit, data is posted to app.js
+  - app.js takes what was in the request and inserts this into the database
+
+
+## Installation Steps
 ### start with init  
 `npm init -y`
 
