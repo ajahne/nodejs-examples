@@ -49,7 +49,20 @@ const getNames = (cb) => {
   });
 }
 
+//update
+const update = (cb) => {
+  db.collection('names').updateOne(
+    {firstname:'bar'},
+    {$set: {firstname: 'fizz', lastname:'buzz'},
+     $currentDate: {lastModified:true}}
+  )
+  .then(function(result) {
+    cb(result);
+  });
+}
+
 module.exports = {
   addName,
   getNames,
+  update,
 }

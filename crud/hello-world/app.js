@@ -33,4 +33,10 @@ app.get('/getnames', (req,res) => {
   });
 })
 
+app.get('/update', (req,res) => {
+  mongoClient.update((result) => {
+    res.send(result);
+  });
+})
+
 app.listen(port, () => console.log(`listening on port ${port}`));
