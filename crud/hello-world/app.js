@@ -39,4 +39,10 @@ app.get('/update', (req,res) => {
   });
 })
 
+app.get('/delete', (req, res) => {
+    mongoClient.deleteName('foo', 'bar', function(result) {
+      res.send(result);
+    });
+});
+
 app.listen(port, () => console.log(`listening on port ${port}`));
