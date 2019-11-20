@@ -61,8 +61,19 @@ const update = (cb) => {
   });
 }
 
+const deleteName = (firstname, lastname, cb) => {
+  db.collection('names').deleteOne({
+    firstname:firstname,
+    lastname:lastname
+  })
+  .then(function(result) {
+    cb(result);
+  });
+}
+
 module.exports = {
   addName,
   getNames,
   update,
+  deleteName,
 }
