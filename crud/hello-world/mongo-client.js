@@ -61,6 +61,7 @@ const update = (cb) => {
   });
 }
 
+//delete
 const deleteName = (firstname, lastname, cb) => {
   db.collection('names').deleteOne({
     firstname:firstname,

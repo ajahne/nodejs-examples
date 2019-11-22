@@ -33,12 +33,14 @@ app.get('/getnames', (req,res) => {
   });
 })
 
+//UPDATE
 app.get('/update', (req,res) => {
   mongoClient.update((result) => {
     res.send(result);
   });
 })
 
+//DELETE
 app.get('/delete', (req, res) => {
     mongoClient.deleteName('foo', 'bar', function(result) {
       res.send(result);
